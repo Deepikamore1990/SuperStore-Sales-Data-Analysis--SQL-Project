@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS Walmart;
+CREATE DATABASE IF NOT EXISTS SuperStore;
 
-USE Walmart;
+USE SuperStore;
 
 CREATE TABLE Sales(
 Invoice_Id VARCHAR(30) NOT NULL PRIMARY KEY,
@@ -24,7 +24,7 @@ Rating FLOAT(2, 1)
 
 select * from sales;
 
-##------------------- Feature extraction -------------------------##
+##------------------- Feature Extraction -------------------------##
 
 ## Time of Day ##
 select Case
@@ -44,24 +44,24 @@ SET time_of_day =
 		ELSE "Evening" 
 	END;
     
-    ## Month Name##
-    Select Monthname(date) as Month_name from sales;
+## Month Name##
+Select Monthname(date) as Month_name from sales;
     
-    Alter table sales add column Month_name varchar(30) not null;
+Alter table sales add column Month_name varchar(30) not null;
     
-    update sales
-    set Month_name = Monthname(date);
+update sales
+set Month_name = Monthname(date);
     
-    ## Day Name ##
+ ## Day Name ##
     
-    Select Dayname (date) as Day_name from sales;
+Select Dayname (date) as Day_name from sales;
     
-    Alter table sales add column Day_name varchar (30) not null;
+Alter table sales add column Day_name varchar (30) not null;
     
-    Update sales
-    set Day_name = Dayname(date);
+Update sales
+set Day_name = Dayname(date);
     
-    ##----------------Exploratory Data Analysis (EDA)----------------------##
+##----------------Exploratory Data Analysis (EDA)----------------------##
 ## Generic Questions
 # 1.How many distinct cities are present in the dataset?
 Select Distinct city from sales;
